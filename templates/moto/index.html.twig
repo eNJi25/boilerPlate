@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Marques{% endblock %}
+{% block title %}Motos{% endblock %}
 
 {% block body %}
 
@@ -13,14 +13,14 @@
         </tr>
     </thead>
     <tbody>
-        {% for marque in marques %}
+        {% for moto in motos %}
         <tr>
-            <td>{{marque.id}}</td>
-            <td>{{marque.libelle}}</td>
+            <td>{{moto.id}}</td>
+            <td>{{moto.libelle}}</td>
             <td>
-                <a href="{{path('marque_show', {'id': marque.id})}}" class="btn btn-primary">Détails</a>
-                <a href="{{path('marque_edit', {'id': marque.id})}}" class="btn btn-primary">Modifier</a>
-                <a href="{{path('marque_delete', {'id': marque.id})}}" class="btn btn-primary">Supprimer</a>
+                <a href="{{path('moto_show', {'id': moto.id})}}" class="btn btn-primary">Détails</a>
+                <a href="{{path('moto_edit', {'id': moto.id})}}" class="btn btn-primary">Modifier</a>
+                <a href="{{path('moto_delete', {'id': moto.id})}}" class="btn btn-primary">Supprimer</a>
             </td>
         </tr>
         {% endfor %}
@@ -28,6 +28,6 @@
     </tbody>
 </table>
 
-<a href="{{path('marque_create')}}" class="btn btn-primary">Ajouter une marque</a>
+<a href="{{path('moto_create')}}" class="btn btn-primary">Ajouter une marque</a>
 
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Marques{% endblock %}
+{% block title %}Sorties{% endblock %}
 
 {% block body %}
 
@@ -13,12 +13,12 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{marque.id}}</td>
-            <td>{{marque.libelle}}</td>
+            <td>{{sortie.id}}</td>
+            <td>{{sortie.libelle}}</td>
         </tr>
     </tbody>
 </table>
 
-<a href="{{path('marque_index')}}" class="btn btn-primary">Retour à la liste</a>
+<a href="{{path('sortie_index')}}" class="btn btn-primary">Retour à la liste</a>
 
 {% endblock %}
