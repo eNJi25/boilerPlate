@@ -16,6 +16,8 @@ class MarqueRepository extends ServiceEntityRepository
         parent::__construct($registry, Marque::class);
     }
 
+    
+    // Ici on a ajouter les fonctions save et remove afin de pouvoir les utiliser dans le controller
     public function save(Marque $marque, bool $flush = true): void
     {
         $this->getEntityManager()->persist($marque);
