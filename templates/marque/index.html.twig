@@ -15,7 +15,7 @@
     <tbody>
         {% for marque in marques %}
         <tr>
-            <td scope="row">{{marque.id}}</td>
+            <td>{{marque.id}}</td>
             <td>{{marque.libelle}}</td>
             <td>
                 <a href="{{path('marque_show', {'id': marque.id})}}" class="btn btn-primary">Détails</a>
