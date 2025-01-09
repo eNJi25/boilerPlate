@@ -6,6 +6,7 @@ use App\Repository\MarqueRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MarqueRepository::class)]
 class Marque
@@ -16,6 +17,7 @@ class Marque
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(message: 'Veuillez saisir une valeur')]
     private ?string $libelle = null;
 
     /**
