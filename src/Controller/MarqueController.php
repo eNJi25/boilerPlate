@@ -63,8 +63,9 @@ class MarqueController extends AbstractController
     }
 
     #[Route('/marque/{id}/delete', name: 'marque_delete', methods: ['GET'], requirements: ['id' => '\d+'])]
-    public function delete(): Response
+    public function delete(Marque $marque, MarqueRepository $repo): Response
     {
-        dd(__METHOD__);
+        $repo->remove($marque, true);
+        return $this->redirectToRoute('marque_index');
     }
 }

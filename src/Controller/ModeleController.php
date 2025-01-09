@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Modele;
+use App\Form\ModeleType;
 use App\Repository\ModeleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -27,9 +29,19 @@ class ModeleController extends AbstractController
     }
 
     #[Route('/modele/create', name: 'modele_create', methods: ['GET', 'POST'])]
-    public function create(): Response
+    public function create(Request $request, ModeleRepository $repo): Response
     {
-        dd(__METHOD__);
+        $modele = new Modele();
+        $form = $this->createForm(ModeleType::class, $modele);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $repo->save($modele, true);
+            $this->addFlash('success', 'Le modèle a été ajouté avec succès');
+            return $this->redirectToRoute('modele_index');
+        }
+        return $this->render('modele/create.html.twig', [
+            'formView' => $form->createView()
+        ]);
     }
 
     #[Route('/modele/{id}/edit', name: 'modele_edit', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]

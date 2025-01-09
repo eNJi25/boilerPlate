@@ -18,6 +18,16 @@ class Marque
 
     #[ORM\Column(length: 50)]
     #[Assert\NotBlank(message: 'Veuillez saisir une valeur')]
+    #[Assert\Length(
+        min: 2,
+        minMessage: 'Le libellé doit contenir au moins {{ limit }} caractères',
+        max: 50,
+        maxMessage: 'Le libellé ne doit pas dépasser {{ limit }} caractères'
+    )]
+    #[Assert\Regex(
+        pattern: '/^[a-zA-Z\s-]+$/',
+        message: 'Le libellé ne doit contenir que des lettres, des chiffres, des tirets et des espaces'
+    )]
     private ?string $libelle = null;
 
     /**
