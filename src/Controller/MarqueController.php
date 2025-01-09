@@ -26,19 +26,19 @@ class MarqueController extends AbstractController
         ]);
     }
 
-    #[Route('marque/create', name: 'marque_create', methods: ['GET', 'POST'])]
+    #[Route('/marque/create', name: 'marque_create', methods: ['GET', 'POST'])]
     public function create(): Response
     {
         dd(__METHOD__);
     }
 
-    #[Route('marque/{id}/edit', name: 'marque_edit', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
+    #[Route('/marque/{id}/edit', name: 'marque_edit', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
     public function update(): Response
     {
         dd(__METHOD__);
     }
 
-    #[Route('marque/{id}/delete', name: 'marque_delete', methods: ['GET'], requirements: ['id' => '\d+'])]
+    #[Route('/marque/{id}/delete', name: 'marque_delete', methods: ['GET'], requirements: ['id' => '\d+'])]
     public function delete(): Response
     {
         dd(__METHOD__);
